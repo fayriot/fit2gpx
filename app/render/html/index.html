@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';"/>
+    <title>fit2gpx</title>
+    <link rel='stylesheet' href='../css/styles.css'>
+</head>
+
+<body class='app'>
+
+<div class='app__container'>
+    <div id='uploader' class='app__uploader' onclick='openDialog()'>
+        <div class='app__uploader__icon-area'>
+            <img src='../assets/upload.svg' class='app__uploader__icon-area__icon'/>
+            <p class='app__uploader__icon-area__text'><strong>Drop .fit here</strong></p>
+        </div>
+    </div>
+
+    <div id='fileList' class='app__files'></div>
+</div>
+
+<div class='app__footer'>
+    <div class='app__footer__icon-area' onclick='toggleSettings()'>
+        <img src='../assets/settings.svg' class='app__footer__icon-area__icon'/>
+    </div>
+</div>
+
+<div class="app__settings" id="app__settings">
+    <div class="app__settings__left">
+        <div class="app__settings__left__item app__settings__left__item--active">
+            > General preferences
+        </div>
+        <div class="app__settings__left__item" onclick='toggleSettings()'>
+            Close menu
+        </div>
+    </div>
+
+    <div class="app__settings__center">
+        <div class="app__settings__center__group">
+            <h4>Output</h4>
+
+            <div class="app__settings__center__item">
+                <input class="app__checkbox" type="checkbox" id="sameDir" name="sameDir" value="sameDir"
+                       onclick='chooseSameDir()'>
+                <label for="sameDir">Convert to source folder</label>
+            </div>
+
+            <div class="app__settings__center__item" id="targetDirWrapper">
+                <div>
+                    <button onclick='chooseDir()' id="targetDirButton">…</button>
+                    <span id="targetDir" style="opacity: .7"></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="loader" id="loader"><div></div><div></div><div></div><div></div></div>
+
+<script>
+    require('../js/renderer.js');
+</script>
+</body>
+</html>

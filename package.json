@@ -1,0 +1,54 @@
+{
+    "name": "fit2gpx",
+    "version": "1.0.0",
+    "description": "Simple app for converting .FIT files to .GPX files",
+    "main": "app/index.js",
+    "build": {
+        "appId": "com.fit2gpx.app",
+        "mac": {
+            "category": "public.app-category.utilities"
+        },
+        "extraFiles": {
+            "from": "./build",
+            "to": "./dist"
+        },
+        "linux": {
+            "target": [ "deb", "appimage" ]
+        },
+        "win":{
+            "target": [ "nsis", "portable" ]
+        }
+    },
+    "scripts": {
+        "start": "electron .",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder",
+        "lint": "eslint"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fayriot/fit2gpx.git"
+    },
+    "author": {
+        "name": "Kirill Khrushchev",
+        "email": "fayriot@gmail.com"
+    },
+    "license": "AGPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/fayriot/fit2gpx/issues"
+    },
+    "homepage": "https://github.com/fayriot/fit2gpx#readme",
+    "dependencies": {
+        "@sports-alliance/sports-lib": "5.4.24",
+        "drag-drop": "6.1.0",
+        "electron-json-storage": "4.6.0",
+        "fs-extra": "9.1.0",
+        "open": "7.4.2"
+    },
+    "devDependencies": {
+        "electron": "24.3.0",
+        "electron-builder": "23.6.0",
+        "electron-reloader": "1.2.3",
+        "eslint": "^8.41.0"
+    }
+}
